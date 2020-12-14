@@ -1,24 +1,41 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type    | Options                   |
+| ------------------ | ------- | ------------------------- |
+| name               | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| checker_id         | integer | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :conditions
+- has_one :check
 
-* Configuration
+## healths テーブル
 
-* Database creation
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| body_temperature | float      | null: false                    |
+| condition_id     | integer    | null: false                    |
+| alcohol_level    | float      | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_one :check
 
-* Services (job queues, cache servers, search engines, etc.)
+## checks テーブル
 
-* Deployment instructions
+| Coulmn | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| health | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :health
