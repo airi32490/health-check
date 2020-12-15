@@ -13,7 +13,8 @@ Rails.application.routes.draw do
  resources :healths, only: [:new, :create] do
   collection do
     get 'check'
-    get 'approval'
+    post 'approval'
+    get 'top'
   end
  end
 end

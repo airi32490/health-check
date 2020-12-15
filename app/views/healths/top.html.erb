@@ -1,0 +1,11 @@
+<h1>Topページ</h1>
+
+<%= link_to '検索ページ', "#" %>
+
+<% @healths.each do |health|%>
+  <%= health.body_temperature %>
+  <%= health.user.name %>
+<% end %>
+
+<%= link_to 'トップページ', root_path %>
+<%= current_user.name %>
