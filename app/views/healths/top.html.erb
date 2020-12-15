@@ -1,0 +1,7 @@
+<% @healths.each do |health|%>
+  <%= health.body_temperature %>
+  <%= health.user.name %>
+<% end %>
+
+<%= link_to 'トップページ', root_path %>
+<%= current_user.name %>
