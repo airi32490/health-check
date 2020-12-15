@@ -24,7 +24,7 @@ class HealthsController < ApplicationController
     if @user.checker_id == 2
       redirect_to top_healths_path
     else
-      render :approval
+      render :check
     end
   end
 
