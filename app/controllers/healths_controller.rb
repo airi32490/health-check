@@ -1,4 +1,8 @@
 class HealthsController < ApplicationController
+  before_action :search_health, only: [:top, :search]
+
+  def index
+  end
 
   def new
     @health = Health.new
@@ -30,6 +34,11 @@ class HealthsController < ApplicationController
 
   def top
     @healths = Health.all
+    @users = User.all
+  end
+
+  def search
+    @results = @u.result.includes(:healths)
   end
 
 
@@ -41,5 +50,10 @@ class HealthsController < ApplicationController
 
   def health_checker_params
     params.require(:user).permit(:email)
+  end
+
+  def search_health
+    @p = Health.ransack(params[:q])
+    @u = User.ransack(params[:q])
   end
 end

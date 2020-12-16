@@ -2,10 +2,33 @@
 
 <%= link_to '検索ページ', "#" %>
 
-<% @healths.each do |health|%>
-  <%= health.body_temperature %>
-  <%= health.user.name %>
-<% end %>
-
 <%= link_to 'トップページ', root_path %>
 <%= current_user.name %>
+
+<h1>
+  商品検索
+</h1>
+<%= search_form_for @u, url: search_healths_path do |f| %>
+  <%= f.label :name_eq, '商品名' %>
+  <%= f.collection_select :name_eq, @users, :name, :name,  include_blank: '指定なし' %>
+  <br>
+    <%# <%= f.label :created_at_eq, 'カテゴリー：' %> %>
+    <%# <%= f.collection_select :created_at_eq, @healths, :created_at, :created_at, include_blank: '指定なし' %> %>
+    <br>
+  <%= f.submit '検索' %>
+    <br>
+  <%# 商品一覧 %>
+  <% @users.each do |user| %>
+  <td>
+  <br>
+    <% user.healths.each do |health|%>
+      <li>
+        <%= health.body_temperature %>
+        <%= health.condition.name %>
+        <%= health.alcohol_level %>
+        <%= l health.created_at %>
+        <%= user.name %>
+      </li>
+    <% end %>
+  <% end %>
+<% end %>
