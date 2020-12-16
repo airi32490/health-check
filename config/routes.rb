@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get 'check'
     post 'approval'
     get 'top'
+    get 'search'
   end
  end
 end
