@@ -11,7 +11,7 @@ class HealthsController < ApplicationController
   def create
     @health = Health.new(health_params)
     if@health.save
-      if (@health.body_temperature >= 37.0) || (@health.alcohol_level >= 0.15)
+      if (@health.body_temperature >= 37.0) || (@health.alcohol_level >= 0.15) || (@health.condition_id == 4)
         redirect_to check_healths_path
       else
         redirect_to top_healths_path
@@ -26,27 +26,20 @@ class HealthsController < ApplicationController
     @user = User.new
   end
 
-  # def approval
-  #   @user = User.find_by(health_checker_params)
-  #   if (@user != nil) && (@user.checker_id == 2)
-  #     redirect_to top_healths_path
-  #   else
-  #     flash[:notice] = "確認者のメールアドレスを正しく入力して下さい"
-  #     redirect_to check_healths_path
-  #   end
-  # end
-
   def approval
     @user = User.find_by(health_checker_params)
     if @user != nil
-      if @user.checker_id == 2
+      if @user.id == current_user.id
+        flash[:error] = "他の資格保有者が承認を行なってください"
+        redirect_to check_healths_path
+      elsif @user.checker_id == 2
         redirect_to top_healths_path
       else
-        flash[:notice] = "資格保有者のメールアドレスを入力してください"
+        flash[:error] = "資格保有者のメールアドレスを入力してください"
         redirect_to check_healths_path
       end
     else
-      flash[:notice] = "確認者のメールアドレスを入力してください"
+      flash[:error] = "確認者のメールアドレスを入力してください"
       redirect_to check_healths_path
     end
   end
