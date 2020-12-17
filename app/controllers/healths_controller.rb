@@ -1,5 +1,5 @@
 class HealthsController < ApplicationController
-  before_action :search_health, only: [:top, :search]
+  before_action :search_health, only: [:search, :result]
 
   def index
   end
@@ -20,6 +20,7 @@ class HealthsController < ApplicationController
   end
 
   def check
+    @healths = Health.all.order(created_at: :desc)
     @user = User.new
   end
 
@@ -33,12 +34,17 @@ class HealthsController < ApplicationController
   end
 
   def top
-    @healths = Health.all
-    @users = User.all
   end
 
   def search
-    @results = @u.result.includes(:healths)
+    # @healths = Health.all
+    set_user_column
+    set_health_column
+    # @users = User.all
+  end
+
+  def result
+    @results = @h.result.includes(:user)
   end
 
 
@@ -53,7 +59,15 @@ class HealthsController < ApplicationController
   end
 
   def search_health
-    @p = Health.ransack(params[:q])
-    @u = User.ransack(params[:q])
+    @h = Health.ransack(params[:q])
+    # @u = User.ransack(params[:q])
+  end
+
+  def set_user_column
+    @user_name = User.select("name")
+  end
+
+  def set_health_column
+    @health_created_at = Health.select("created_at")
   end
 end

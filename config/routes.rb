@@ -10,12 +10,13 @@ Rails.application.routes.draw do
 #    sessions: 'users/sessions'
 #  }
 
- resources :healths, only: [:new, :create] do
-  collection do
-    get 'check'
-    post 'approval'
-    get 'top'
-    get 'search'
+  resources :healths, only: [:new, :create] do
+    collection do
+      get 'check'
+      post 'approval'
+      get 'top'
+      get 'search'
+      get 'result'
   end
  end
 end
