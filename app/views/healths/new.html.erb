@@ -3,7 +3,7 @@
     <h2 class="items-sell-title">体調を入力</h2>
     <%= form_with model: @health, local: true do |f| %>
 
-    <%# <%= render 'shared/error_messages', model: @item %> %>
+    <%= render 'shared/error_messages', model: @health %>
 
     <%# 商品名と商品説明 %>
     <div class="new-items">

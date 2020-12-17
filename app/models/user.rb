@@ -10,11 +10,11 @@ class User < ApplicationRecord
   belongs_to :checker
 
   with_options presence: true do
-    validates :name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters' }
-    validates :checker_id, numericality: { other_than: 1, message: 'Select' }
+    validates :name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'は全角で入力してください' }
+    validates :checker_id, numericality: { other_than: 1, message: 'を選択してください' }
   end
 
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'include both letters and numbers' }
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'は英数字を含めてください' }
 
   
 end

@@ -3,3 +3,12 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%Y/%m/%d %H:%M"
+  activerecord:
+   attributes:
+     user:
+       name: 名前
+       checker_id: 資格の有無
+     health:
+       body_temperature: 体温
+       condition_id: 体調
+       alcohol_level: アルコール数値
