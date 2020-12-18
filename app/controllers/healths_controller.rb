@@ -1,4 +1,5 @@
 class HealthsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :search_health, only: [:search, :result]
 
   def index
@@ -11,6 +12,7 @@ class HealthsController < ApplicationController
   def create
     @health = Health.new(health_params)
     if@health.save
+      # 体温が37度以上 or アルコール数値が0.15mg/L以上 or 体調が不調 どれか一つでも当てはまれば確認画面へ遷移
       if (@health.body_temperature >= 37.0) || (@health.alcohol_level >= 0.15) || (@health.condition_id == 4)
         redirect_to check_healths_path
       else
@@ -29,9 +31,11 @@ class HealthsController < ApplicationController
   def approval
     @user = User.find_by(health_checker_params)
     if @user != nil
+      # 確認者とログインユーザーが一緒だとエラーメッセージの表示
       if @user.id == current_user.id
         flash[:error] = "他の資格保有者が承認を行なってください"
         redirect_to check_healths_path
+        # 資格保有者か判定
       elsif @user.checker_id == 2
         redirect_to top_healths_path
       else
@@ -48,10 +52,8 @@ class HealthsController < ApplicationController
   end
 
   def search
-    # @healths = Health.all
     set_user_column
     set_health_column
-    # @users = User.all
   end
 
   def result
@@ -71,7 +73,6 @@ class HealthsController < ApplicationController
 
   def search_health
     @h = Health.ransack(params[:q])
-    # @u = User.ransack(params[:q])
   end
 
   def set_user_column
