@@ -1,23 +1,37 @@
-<h1>
-  検索結果
-</h1>
-<%# 検索結果の個数で条件分岐 %>
-<% if @results.length !=0 %>
-  <% @results.each do |result| %>
-    <td>
-    <br>
-      <% result.healths.each do |health|%>
-        <li>
-          <%= health.body_temperature %>
-          <%= health.condition.name %>
-          <%= health.alcohol_level %>
-          <%= l health.created_at %>
-          <%= health.user.name %>
-        </li>
-      <% end %>
-  <% end %>
-<% else %>
-  該当する商品はありません
+
+<h1 class="text-center mt-5">Search</h1>
+
+<%= search_form_for @h, class:"text-center", url: result_healths_path do |f| %>
+  <div class="mt-5">
+  <%= f.label :user_name_eq, 'ユーザー名' %>
+  <%= f.collection_select :user_name_eq, @user_name, :name, :name,  include_blank: '指定なし' %>
+  </div>
+  <div class="mt-3">
+  <%= f.label :created_at_eq, '日付' %>
+  <%= f.collection_select :created_at_gteq, @health_created_at, :created_at, :created_at,  include_blank: '指定なし' %>
+  〜
+  <%= f.collection_select :created_at_lteq, @health_created_at, :created_at, :created_at,  include_blank: '指定なし' %>
+  </div>
+  <div class="mt-5">
+  <%= f.label :body_tempeature, '体温：' %>
+  <%= f.radio_button :body_temperature_gteq, '' %>
+  指定なし
+  <%= f.radio_button :body_temperature_gteq, '37' %>
+  37度以上
+  </div>
+  <div class="mt-3">
+  <%= f.label :condition_id, '体調：' %>
+  <%= f.radio_button :condition_id_eq, '' %>
+  指定なし
+  <%= f.radio_button :condition_id_eq, '4' %>
+  不調
+  </div>
+  <div class="mt-3">
+  <%= f.label :alcohol_level, 'アルコール数値：' %>
+  <%= f.radio_button :alcohol_level_gteq, '' %>
+  指定なし
+  <%= f.radio_button :alcohol_level_gteq, '0.15' %>
+  0.15mg/L以上
+  </div>
+  <%= f.submit '検索', class:"btn btn-dark btn-lg mt-4" %>
 <% end %>
-<br>
-<%= link_to 'トップページへ戻る', root_path %>

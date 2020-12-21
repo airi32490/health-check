@@ -1,0 +1,39 @@
+<h1 class="mt-5 text-center">Result</h1>
+
+<div class="text-right mr-5">
+  <%= link_to 'Search', search_healths_path %>
+</div>
+<div class="text-right mr-5">
+  <%= link_to 'トップページへ戻る', top_healths_path %>
+</div>
+
+<div class="mt-5 mx-5">
+<% if @results.length !=0 %>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">ユーザー</th>
+        <th scope="col">体温</th>
+        <th scope="col">体調</th>
+        <th scope="col">アルコール数値</th>
+        <th scope="col">入力時間</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each_with_index do |result, i| %>
+        <tr>
+          <th scope="row"><%= (i + 1) %></th>
+          <td><%= result.user.name %></td>
+          <td><%= "#{result.body_temperature}℃" %></td>
+          <td><%= result.condition.name %></td>
+          <td><%= "#{result.alcohol_level}mg/L" %></td>
+          <td><%= l result.created_at, format: :short %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  該当する情報はありません
+<% end %>
+</div>

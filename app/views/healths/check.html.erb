@@ -1,30 +1,65 @@
-<%= form_with model: @user, url: approval_healths_path, method: :post, class: 'registration-main', local: true do |f| %>
+<div class="text-center mt-5">
+  <%= "#{current_user.name}さんの結果が基準を超えています" %>
+</div>
+<div>
+  <% @healths.each do |health| %>
+    <% if health.user_id == current_user.id %>
+      <ul class="list-group list-group-horizontal justify-content-center">
+        <% if health.body_temperature < 37 %>
+          <li class="list-group-item">
+            <%= "体温: #{health.body_temperature}℃" %>
+          </li>
+        <% else %>
+            <li class="list-group-item list-group-item-danger">
+            <%= "体温: #{health.body_temperature}℃" %>
+            </li>
+        <% end %>
+        <% if health.condition_id != 4 %>
+          <li class="list-group-item">
+            <%= "体調: #{health.condition.name}" %>
+          </li>
+        <% else %>
+            <li class="list-group-item list-group-item-danger">
+            <%= "体調: #{health.condition.name}" %>
+            </li>
+        <% end %>
+        <% if health.alcohol_level < 0.15 %>
+          <li class="list-group-item">
+            <%= "アルコール数値: #{health.alcohol_level}mg/L" %>
+          </li>
+        <% else %>
+            <li class="list-group-item list-group-item-danger">
+            <%= "アルコール数値: #{health.alcohol_level}mg/L" %>
+            </li>
+        <% end %>
+        <% break %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+<p class="text-center alert alert-danger" role="alert">勤務を続けるか相談しましょう</p>
+
+<%= form_with model: @user, url: approval_healths_path, method: :post, class: 'text-center', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
-    <h1 class='form-header-text'>
-      役席者確認ページ
+    <h1 class='mt-5'>
+      Checker
     </h1>
   </div>
-  <div class='login-flash-message'>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
+  <div class='login-flash-message mt-5'>
+    <%= flash[:error] %>
   </div>
+
+  <%= render 'shared/error_messages', model: @user %>
+
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">メールアドレス</label>
-      <span class="indispensable">必須</span>
+      <label class="form-text mt-5">確認者のemailで認証します</label>
     </div>
     <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
   </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">パスワード</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.password_field :password, class:"input-default", id:"password", placeholder:"" %>
-  </div>
   <div class='login-btn'>
-    <%= f.submit "承認" ,class:"login-red-btn" %>
+    <%= f.submit "承認" ,class:"btn btn-dark btn-lg" %>
   </div>
 </div>
 <% end %>

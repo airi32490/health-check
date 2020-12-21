@@ -1,34 +1,26 @@
-<h1>Topページ</h1>
+<h1 class="text-center mt-5 greeting">Top</h1>
 
-<%= link_to '検索ページ', "#" %>
+<div class="text-right mt-3 mr-5">
+  <%= Date.current.strftime('%Y年%m月%d日') %>
+</div>
+<div class="text-right mr-5">
+  <%= "ログインユーザー: #{current_user.name}さん" %>
+</div>
 
-<%= link_to 'トップページ', root_path %>
-<%= current_user.name %>
-
-<h1>
-  商品検索
-</h1>
-<%= search_form_for @u, url: search_healths_path do |f| %>
-  <%= f.label :name_eq, '商品名' %>
-  <%= f.collection_select :name_eq, @users, :name, :name,  include_blank: '指定なし' %>
-  <br>
-    <%# <%= f.label :created_at_eq, 'カテゴリー：' %> %>
-    <%# <%= f.collection_select :created_at_eq, @healths, :created_at, :created_at, include_blank: '指定なし' %> %>
-    <br>
-  <%= f.submit '検索' %>
-    <br>
-  <%# 商品一覧 %>
-  <% @users.each do |user| %>
-  <td>
-  <br>
-    <% user.healths.each do |health|%>
-      <li>
-        <%= health.body_temperature %>
-        <%= health.condition.name %>
-        <%= health.alcohol_level %>
-        <%= l health.created_at %>
-        <%= user.name %>
-      </li>
-    <% end %>
+<div class="container">
+  <div class="text-center mt-4">
+    <%= link_to 'Health check', root_path, class:"login-link"  %>
+  </div>
+  <% if current_user.checker_id == 2%>
+  <div class="text-center mt-4">
+    <%= link_to 'Search', search_healths_path, class:"login-link"  %>
+  </div>
   <% end %>
-<% end %>
+  <div class="text-center mt-4">
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"login-link"  %>
+  </div>
+  <div class="mt-5 text-center">
+    <%= image_tag '/images/officework_man.png', style:"width: 20%;" %>
+    <%= image_tag '/images/officework_lady.png', style:"width: 20%;" %>
+  </div>
+</div>

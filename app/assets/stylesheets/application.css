@@ -13,3 +13,49 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-family: "M PLUS 1p";
+}
+
+li {
+  list-style-type: none;
+}
+
+/* index.html.erb */
+.greeting {
+  font-size: 10ex;
+}
+
+.login-link {
+	position: relative;
+	padding: 0.1em 0.3em;
+	display: inline-block;
+	transition: .3s;
+  font-size: 3ex;
+  color: black;
+}
+.login-link::before,
+.login-link::after {
+	position: absolute;
+	content: '';
+	width: 0;
+	height: 1px;
+	background-color: black;
+	transition: .3s;
+}
+.login-link::before {
+	top: 0;
+	left: 0;
+}
+.login-link::after {
+	bottom: 0;
+	right: 0;
+}
+.login-link:hover::before,
+.login-link:hover::after {
+	width: 100%;
+}
+
+/* sign upページ */
