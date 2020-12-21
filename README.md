@@ -12,7 +12,6 @@
 ### Association
 
 - has_many :conditions
-- has_one :check
 
 ## healths テーブル
 
@@ -26,16 +25,3 @@
 ### Association
 
 - belongs_to :user
-- has_one :check
-
-## checks テーブル
-
-| Coulmn | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| health | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :health
