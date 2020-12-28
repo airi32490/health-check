@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_094242) do
+ActiveRecord::Schema.define(version: 2020_12_28_074210) do
 
   create_table "healths", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.float "body_temperature", null: false
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 2020_12_14_094242) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_healths_on_user_id"
+  end
+
+  create_table "markets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.decimal "nikkei", precision: 10, null: false
+    t.decimal "ny_dow", precision: 10, null: false
+    t.decimal "us_dollar", precision: 10, null: false
+    t.decimal "euro", precision: 10, null: false
+    t.decimal "au_dollar", precision: 10, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_markets_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -37,4 +49,5 @@ ActiveRecord::Schema.define(version: 2020_12_14_094242) do
   end
 
   add_foreign_key "healths", "users"
+  add_foreign_key "markets", "users"
 end

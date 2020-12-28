@@ -68,6 +68,7 @@ password : b12345
 ### Association
 
 - has_many :conditions
+- has_many :markets
 
 ## healths テーブル
 
@@ -77,6 +78,21 @@ password : b12345
 | condition_id     | integer    | null: false                    |
 | alcohol_level    | float      | null: false                    |
 | user             | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user  
+
+## markets テーブル
+
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| nikkei    | decimal    | null: false                    |
+| ny_dow    | decimal    | null: false                    |
+| us_dollar | decimal    | null: false                    |
+| euro      | decimal    | null: false                    |
+| au_dollar | decimal    | null: false                    |
+| user      | references | null: false, foreign_key: true |
 
 ### Association
 
