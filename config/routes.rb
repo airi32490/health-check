@@ -19,4 +19,5 @@ Rails.application.routes.draw do
       get 'result'
   end
  end
+  resources :markets, only: [:new, :create]
 end

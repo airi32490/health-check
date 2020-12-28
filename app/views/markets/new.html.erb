@@ -1,0 +1,62 @@
+<h1 class="text-center mt-5">マーケット情報入力</h1>
+
+<%= form_with model: @market, class:"text-center", local: true do |f| %>
+
+  <%= render 'shared/error_messages', model: @market %>
+
+  <div class="container mt-5">
+    <div class="row mt-3">
+      <div class="col text-right">
+        日経平均株価
+      </div>
+      <div class="col text-left">
+        <%= f.text_field :nikkei, class:"text-right", id:"item-name", placeholder:"(半角数字で入力)", maxlength:"14" %>
+        円
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col text-right">
+        NYダウ
+      </div>
+      <div class="col text-left">
+        <%= f.text_field :ny_dow, class:"text-right", id:"item-name", placeholder:"（半角数字で入力)", maxlength:"14" %>
+        円
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col text-right">
+        アメリカ合衆国ドル
+      </div>
+      <div class="col text-left">
+        <%= f.text_field :us_dollar, class:"text-right", id:"item-name", placeholder:"(半角数字で入力)", maxlength:"14" %>
+        円
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col text-right">
+        ユーロ
+      </div>
+      <div class="col text-left">
+        <%= f.text_field :euro, class:"text-right", id:"item-name", placeholder:"(半角数字で入力)", maxlength:"14" %>
+        円
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col text-right">
+        オーストラリアドル
+      </div>
+      <div class="col text-left">
+        <%= f.text_field :au_dollar, class:"text-right", id:"item-name", placeholder:"(半角数字で入力)", maxlength:"14" %>
+        円
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mt-5">
+    <%= f.submit "送信する" ,class:"btn btn-dark btn-lg mt-4" %>
+  </div>
+  <div class="mt-3">
+    <%=link_to 'もどる', root_path %>
+  </div>
+<% end %>
