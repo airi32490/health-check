@@ -85,14 +85,14 @@ password : b12345
 
 ## markets テーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| nikkei    | decimal    | null: false                    |
-| ny_dow    | decimal    | null: false                    |
-| us_dollar | decimal    | null: false                    |
-| euro      | decimal    | null: false                    |
-| au_dollar | decimal    | null: false                    |
-| user      | references | null: false, foreign_key: true |
+| Column    | Type       | Options                             |
+| --------- | ---------- | ----------------------------------- |
+| nikkei    | decimal    | null: false, precision: 7, scale: 2 |
+| ny_dow    | decimal    | null: false, precision: 7, scale: 2 |
+| us_dollar | decimal    | null: false, precision: 6, scale: 3 |
+| euro      | decimal    | null: false, precision: 6, scale: 3 |
+| au_dollar | decimal    | null: false, precision: 6, scale: 3 |
+| user      | references | null: false, foreign_key: true      |
 
 ### Association
 

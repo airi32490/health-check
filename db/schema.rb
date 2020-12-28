@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 2020_12_28_074210) do
   end
 
   create_table "markets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.decimal "nikkei", precision: 10, null: false
-    t.decimal "ny_dow", precision: 10, null: false
-    t.decimal "us_dollar", precision: 10, null: false
-    t.decimal "euro", precision: 10, null: false
-    t.decimal "au_dollar", precision: 10, null: false
+    t.decimal "nikkei", precision: 7, scale: 2, null: false
+    t.decimal "ny_dow", precision: 7, scale: 2, null: false
+    t.decimal "us_dollar", precision: 6, scale: 3, null: false
+    t.decimal "euro", precision: 6, scale: 3, null: false
+    t.decimal "au_dollar", precision: 6, scale: 3, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
