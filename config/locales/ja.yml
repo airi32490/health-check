@@ -12,3 +12,9 @@ ja:
        body_temperature: 体温
        condition_id: 体調
        alcohol_level: アルコール数値
+     market:
+       nikkei: 日経平均株価
+       ny_dow: NYダウ
+       us_dollar: アメリカ合衆国ドル
+       euro: ユーロ
+       au_dollar: オーストラリアドル
