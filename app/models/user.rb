@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :healths
+  has_many :markets
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :checker

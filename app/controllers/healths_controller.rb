@@ -83,8 +83,6 @@ class HealthsController < ApplicationController
   end
 
   def ensure_checker
-    if current_user.checker_id != 2
-      redirect_to top_healths_path
-    end
+    redirect_to top_healths_path if current_user.checker_id != 2
   end
 end
