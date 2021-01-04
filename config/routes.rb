@@ -19,5 +19,10 @@ Rails.application.routes.draw do
       get 'result'
   end
  end
-  resources :markets, only: [:new, :create]
+  resources :markets, only: [:new, :create] do
+    collection do
+      get 'search'
+      get 'result'
+    end
+  end
 end

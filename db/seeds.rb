@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Market.create(nikkei: "26691.29", ny_dow: "30403.97", us_dollar: "103.623", euro: "126.756", au_dollar: "78.634", user_id: "1")
+Market.create(nikkei: "26708.10", ny_dow: "30199.87", us_dollar: "103.542", euro: "126.286", au_dollar: "78.634", user_id: "1")
+Market.create(nikkei: "26635.11", ny_dow: "30129.83", us_dollar: "103.481", euro: "126.283", au_dollar: "78.717", user_id: "1")
+Market.create(nikkei: "26580.43", ny_dow: "30015.51", us_dollar: "103.639", euro: "126.175", au_dollar: "78.408", user_id: "1")
+Market.create(nikkei: "26559.33", ny_dow: "30216.45", us_dollar: "103.558", euro: "126.024", au_dollar: "77.940", user_id: "1")
+Market.create(nikkei: "26834.10", ny_dow: "30179.05", us_dollar: "103.637", euro: "126.459", au_dollar: "78.353", user_id: "1")
+Market.create(nikkei: "26775.53", ny_dow: "30303.37", us_dollar: "103.306", euro: "126.606", au_dollar: "78.763", user_id: "1")
+Market.create(nikkei: "26744.50", ny_dow: "30154.54", us_dollar: "103.315", euro: "126.462", au_dollar: "78.572", user_id: "1")
+Market.create(nikkei: "26835.59", ny_dow: "30199.31", us_dollar: "103.104", euro: "126.214", au_dollar: "78.396", user_id: "1")
+Market.create(nikkei: "26683.11", ny_dow: "29861.55", us_dollar: "103.483", euro: "126.957", au_dollar: "78.335", user_id: "1")
