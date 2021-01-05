@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'result'
+      get 'stock_graph'
+      get 'exchange_graph'
     end
   end
 end

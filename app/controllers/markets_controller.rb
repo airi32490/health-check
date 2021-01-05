@@ -23,6 +23,14 @@ class MarketsController < ApplicationController
     @results = @m.result
   end
 
+  def stock_graph
+    make_graph
+  end
+
+  def exchange_graph
+    make_graph
+  end
+
   private
 
   def market_params
@@ -31,5 +39,10 @@ class MarketsController < ApplicationController
 
   def search_market
     @m = Market.ransack(params[:q])
+  end
+
+  def make_graph
+    @data = Market.limit(31).order(created_at: :desc).pluck(:created_at, params[:column])
+    @price = Market.limit(31).order(created_at: :desc).pluck(params[:column])
   end
 end
