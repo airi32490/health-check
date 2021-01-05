@@ -1,5 +1,7 @@
 class MarketsController < ApplicationController
 
+  before_action :search_market, only: [:search, :result]
+
   def new
     @market = Market.new
   end
@@ -13,9 +15,34 @@ class MarketsController < ApplicationController
     end
   end
 
+  def search
+    @markets = Market.all
+  end
+
+  def result
+    @results = @m.result
+  end
+
+  def stock_graph
+    make_graph
+  end
+
+  def exchange_graph
+    make_graph
+  end
+
   private
 
   def market_params
     params.require(:market).permit(:nikkei, :ny_dow, :us_dollar, :euro, :au_dollar).merge(user_id: current_user.id)
+  end
+
+  def search_market
+    @m = Market.ransack(params[:q])
+  end
+
+  def make_graph
+    @data = Market.limit(31).order(created_at: :desc).pluck(:created_at, params[:column])
+    @price = Market.limit(31).order(created_at: :desc).pluck(params[:column])
   end
 end

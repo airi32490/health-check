@@ -14,6 +14,9 @@
   <div class="text-center mt-4">
     <%= link_to 'market', new_market_path, class:"login-link"  %>
   </div>
+  <div class="text-center mt-4">
+    <%= link_to 'market search', search_markets_path, class:"login-link"  %>
+  </div>
   <% if current_user.checker_id == 2%>
   <div class="text-center mt-4">
     <%= link_to 'Search', search_healths_path, class:"login-link"  %>

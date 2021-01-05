@@ -1,0 +1,41 @@
+<h1 class="mt-5 text-center">Result</h1>
+
+<div class="text-right mr-5">
+  <%= link_to 'Search', search_markets_path %>
+</div>
+<div class="text-right mr-5">
+  <%= link_to 'トップページへ戻る', top_healths_path %>
+</div>
+
+<div class="mt-5 mx-5">
+<% if @results.length !=0 %>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">日経平均株価<br><%= link_to '最新一ヶ月のグラフ', stock_graph_markets_path(column: :nikkei) %></th>
+        <th scope="col">NYダウ<br><%= link_to '最新一ヶ月のグラフ', stock_graph_markets_path(column: :ny_dow) %></th>
+        <th scope="col">アメリカ合衆国ドル<br><%= link_to '最新一ヶ月のグラフ', exchange_graph_markets_path(column: :us_dollar) %></th>
+        <th scope="col">ユーロ<br><%= link_to '最新一ヶ月のグラフ', exchange_graph_markets_path(column: :euro) %></th>
+        <th scope="col">オーストラリアドル<br><%= link_to '最新一ヶ月のグラフ', exchange_graph_markets_path(column: :au_dollar) %></th>
+        <th scope="col">入力日時</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each_with_index do |result, i| %>
+        <tr>
+          <th scope="row"><%= (i + 1) %></th>
+          <td><%= "#{result.nikkei}円" %></td>
+          <td><%= "#{result.ny_dow}円" %></td>
+          <td><%= "#{result.us_dollar}円" %></td>
+          <td><%= "#{result.euro}円" %></td>
+          <td><%= "#{result.au_dollar}円" %></td>
+          <td><%= l result.created_at, format: :short %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  該当する情報はありません
+<% end %>
+</div>
