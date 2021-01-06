@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :healths
   has_many :markets
+  has_many :comments
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :checker
