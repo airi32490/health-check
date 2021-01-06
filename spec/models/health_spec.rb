@@ -44,7 +44,7 @@ RSpec.describe Health, type: :model do
         @health.valid?
         expect(@health.errors.full_messages).to include('アルコール数値は半角数字で入力してください')
       end
-      it 'user_idが紐づいていたいと失敗する' do
+      it 'user_idが紐づいていないと失敗する' do
         @health.user_id = nil
         @health.valid?
         expect(@health.errors.full_messages).to include('Userを入力してください')
