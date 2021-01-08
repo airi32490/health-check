@@ -6,9 +6,6 @@
 <div class="text-right mr-5">
   <%= link_to 'トップページへ戻る', top_healths_path %>
 </div>
-<div>
-  <%= link_to 'コメント投稿画面', comments_path%>
-</div>
 
 <div class="mt-5 mx-5">
 <% if @results.length !=0 %>
@@ -16,11 +13,11 @@
     <thead>
       <tr>
         <th scope="col"></th>
-        <th scope="col">日経平均株価<br><%= link_to '最新一ヶ月のグラフ', stock_graph_markets_path(column: :nikkei) %></th>
-        <th scope="col">NYダウ<br><%= link_to '最新一ヶ月のグラフ', stock_graph_markets_path(column: :ny_dow) %></th>
-        <th scope="col">アメリカ合衆国ドル<br><%= link_to '最新一ヶ月のグラフ', exchange_graph_markets_path(column: :us_dollar) %></th>
-        <th scope="col">ユーロ<br><%= link_to '最新一ヶ月のグラフ', exchange_graph_markets_path(column: :euro) %></th>
-        <th scope="col">オーストラリアドル<br><%= link_to '最新一ヶ月のグラフ', exchange_graph_markets_path(column: :au_dollar) %></th>
+        <th scope="col">日経平均株価<br><%= link_to '直近半年間のグラフ', stock_graph_markets_path(column: :nikkei) %></th>
+        <th scope="col">NYダウ<br><%= link_to '直近半年間のグラフ', stock_graph_markets_path(column: :ny_dow) %></th>
+        <th scope="col">アメリカ合衆国ドル<br><%= link_to '直近半年間のグラフ', exchange_graph_markets_path(column: :us_dollar) %></th>
+        <th scope="col">ユーロ<br><%= link_to '直近半年間のグラフ', exchange_graph_markets_path(column: :euro) %></th>
+        <th scope="col">オーストラリアドル<br><%= link_to '直近半年間のグラフ', exchange_graph_markets_path(column: :au_dollar) %></th>
         <th scope="col">入力日時</th>
       </tr>
     </thead>

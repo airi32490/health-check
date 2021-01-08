@@ -1,10 +1,19 @@
 class CommentsController < ApplicationController
-  def index
-    @comments = Comment.all.order(id: "DESC")
-  end
+  
+  # 消しても問題なければ削除する
+  # def index
+  #   @comments = Comment.all.order(id: "DESC")
+  # end
+
 
   def create
-    Comment.create(memo: params[:memo]).merge(user_id: current_user.id)
-    redirect_to :index
+    comment = current_user.comments.create(memo: params[:memo])
+    render json:{post: comment}
   end
+
+  private
+
+  # def comment_params
+  #   # params.require(:comment).permit(:memo).merge(user_id: current_user.id)
+  # end
 end

@@ -1,0 +1,19 @@
+<div class="mt-5 mx-5">
+  <h1>株価/為替　コメント欄</h1>
+
+  <%= form_with url: "/comments", method: :post,id: "form" do |form| %>
+    <%= form.text_field :memo, id: "memo" %>
+    <%= form.submit 'コメントする' , id: "submit" %>
+  <% end %>
+
+  <div id="list">
+  </div>
+
+  <% @comments.each do |comment| %>
+    <div>
+      <%= comment.memo %>
+      <%= comment.user.name%>
+      <%= l comment.created_at %>
+    </div>
+  <% end %>
+</div>
