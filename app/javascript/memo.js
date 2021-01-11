@@ -15,12 +15,12 @@ function memo () {
       const list = document.getElementById("list");
       const formText = document.getElementById("memo");
       const HTML =  `
-      <div class="post" data-id=${item.id}>
-        <div class="post-date">
-          新規コメント：${item.created_at.strftime('%Y/%m/%d %H:%M:%S')}
-        </div>
+      <div class="border border-dark mt-3 px-2 py-2 post" data-id=${item.id}>
         <div class="post-content">
-        ${item.memo}
+          ${item.memo}
+        </div>
+        <div class="post-date">
+          <span class="text-primary">新規コメント</span>：${item.created_at}
         </div>
       </div>`;
       list.insertAdjacentHTML("afterend", HTML);

@@ -25,12 +25,14 @@ class MarketsController < ApplicationController
 
   def stock_graph
     make_graph
-    @comments = Comment.all.order(id: "DESC")
+    # 最新のコメント30件取得
+    @comments = Comment.all.order(id: "DESC").limit(31)
   end
 
   def exchange_graph
     make_graph
-    @comments = Comment.all.order(id: "DESC")
+    # 最新のコメント30件取得
+    @comments = Comment.all.order(id: "DESC").limit(31)
   end
 
   private
