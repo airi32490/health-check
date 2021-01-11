@@ -1,0 +1,29 @@
+<div class="mt-5 mx-5">
+  <h1>株価/為替　コメント欄</h1>
+  
+  <div class="text-right mr-5">
+    <%= link_to 'Search', search_markets_path %>
+  </div>
+  <div class="text-right mr-5">
+    <%= link_to 'トップページへ戻る', top_healths_path %>
+  </div>
+
+  <div class="mt-3">
+    <%= form_with url: "/comments", method: :post,id: "form" do |form| %>
+      <%= form.text_field :memo, id: "memo" %>
+      <%= form.submit 'コメントする' , id: "submit" %>
+    <% end %>
+
+    <div id="list">
+    </div>
+
+    <% @comments.each do |comment| %>
+      <div class="border border-dark mt-3 px-2 py-2">
+        <%= comment.memo %>
+        <br>
+        <%= comment.user.name%>
+        <%= l comment.created_at %>
+      </div>
+    <% end %>
+  </div>
+</div>

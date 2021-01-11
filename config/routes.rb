@@ -27,4 +27,5 @@ Rails.application.routes.draw do
       get 'exchange_graph'
     end
   end
+  resources :comments, only: [:create]
 end
