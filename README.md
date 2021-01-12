@@ -136,7 +136,7 @@ password : b12345
 # ローカルでの動作方法
 ```ターミナル
 % git clone https://github.com/airi32490/morning-routine.git  
-% cd health-check
+% cd morning-routine
 % bundle install
 % rails db:create
 % rails db:migrate
