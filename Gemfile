@@ -68,3 +68,5 @@ gem 'ransack'
 gem 'rails-i18n'
 
 gem 'chartkick'
+
+gem 'rename'
