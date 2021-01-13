@@ -9,11 +9,6 @@
         <div class="text-center mt-5">
           <%= link_to '体調チェック済み', top_healths_path, class:"login-link" %>
         </div>
-          <% if current_user.checker_id == 2%>
-            <div class="text-center mt-5">
-              <%= link_to 'Search', search_healths_path, class:"login-link"  %>
-            </div>
-          <% end %>
         <div class="text-center mt-5">
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"login-link" %>
         </div>

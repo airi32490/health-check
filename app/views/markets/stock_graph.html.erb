@@ -1,3 +1,5 @@
+<%= render 'shared/header' %>
+
 <div class="mt-5 mx-5">
   <%= line_chart @data, min: (@price.min)-200, max:(@price.max)+200%>
 </div>
