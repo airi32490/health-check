@@ -59,3 +59,14 @@ li {
 }
 
 /* sign upページ */
+/* header */
+header {
+	font-size: x-small;
+	font-weight: bold;
+	border-bottom: double 10px black;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-around;
+}
