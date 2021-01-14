@@ -6,13 +6,12 @@
     <div class="right-link mt-5">
       <% if user_signed_in? %>
         <%= link_to 'Health check', new_health_path, class:"login-link mr-3" %>
-        <%= link_to '体調チェック済み', top_healths_path, class:"login-link mr-3" %>
+        <%= link_to '体調チェック済みの方はこちら', top_healths_path, class:"h6 mr-3" %>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"login-link" %>
       <% else %>
         <%= link_to 'Login', new_user_session_path, class:"login-link mr-3" %>
         <%= link_to 'Sing up', new_user_registration_path, class:"login-link" %>
       <% end %>
-    </div>
     </div>
   </div>
 </header>

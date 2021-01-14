@@ -15,8 +15,7 @@
  */
 
 * {
-  font-family: 'Alegreya Sans SC', sans-serif;
-  font-family: "M PLUS 1p";
+	font-family: 'Open Sans Condensed', sans-serif;
 }
 
 li {
@@ -24,16 +23,12 @@ li {
 }
 
 /* index.html.erb */
-.greeting {
-  font-size: 10ex;
-}
-
 .login-link {
 	position: relative;
 	padding: 0.1em 0.3em;
 	display: inline-block;
 	transition: .3s;
-  font-size: 3ex;
+  font-size: 5ex;
   color: black;
 }
 .login-link::before,
@@ -76,4 +71,12 @@ header {
 	font-size: 60px;
 	font-weight: bold;
 	font-family: 'Amatic SC', cursive;
+}
+/* 入力フォーム */
+.form {
+	width: 140px;
+}
+
+.form-wide {
+	width: 200px;
 }
