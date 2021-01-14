@@ -63,10 +63,17 @@ li {
 header {
 	font-size: x-small;
 	font-weight: bold;
-	border-bottom: double 10px black;
+	border-bottom: double 5px black;
 }
 
 .nav {
 	display: flex;
 	justify-content: space-around;
+}
+
+.phrase {
+	padding: 10% 0 0 10%;
+	font-size: 60px;
+	font-weight: bold;
+	font-family: 'Amatic SC', cursive;
 }

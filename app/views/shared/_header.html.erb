@@ -1,6 +1,6 @@
 <header>
   <div class="nav">
-    <div class="left-link">
+    <div class="left-link mt-3">
         <%= link_to image_tag('/images/Morning Routine ロゴ.png', style: "width: 100px; height: 100px;"), top_healths_path %>
     </div>
     <div class="right-link mt-5">
@@ -13,4 +13,10 @@
         <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"login-link"  %>
     </div>
   </div>
+
+    <%# ログイン情報 %>
+    <div class="h6 text-right mr-5">
+      <%= Date.current.strftime('%Y年%m月%d日') %>
+      <%= "ログインユーザー: #{current_user.name}さん" %>
+    </div>
 </header>

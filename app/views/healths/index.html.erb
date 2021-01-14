@@ -1,27 +1,15 @@
-<h1 class="text-center mt-5 greeting">Welcome</h1>
+<%= render 'shared/header2' %>
 
 <div class="container">
-    <div>
-      <% if user_signed_in? %>
-        <div class="text-center mt-5">
-          <%= link_to 'Health check', new_health_path, class:"login-link" %>
-        </div>
-        <div class="text-center mt-5">
-          <%= link_to '体調チェック済み', top_healths_path, class:"login-link" %>
-        </div>
-        <div class="text-center mt-5">
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"login-link" %>
-        </div>
-      <% else %>
-        <div class="text-center mt-5">
-          <%= link_to 'Login', new_user_session_path, class:"login-link" %>
-        </div>
-        <div class="text-center mt-5">
-          <%= link_to 'Sing up', new_user_registration_path, class:"login-link" %>
-        </div>
-      <% end %>
-    </div>
-    <div>
-      <%= image_tag '/images/heart.png', class:"mt-5 mx-auto d-block", style:"width: 30%;" %>
-    </div>
+  <div>
+    <div class="phrase">Good morning!<br>How are you doing?</div>
+  </div>
+  <div class="text-right">
+    <%= image_tag '/images/heart.png', style:"width: 35%;", class:"image" %>
+  </div>
 </div>
+
+<script>
+  $('.phrase').hide().fadeIn('slow');
+  $('.image').hide().fadeIn('slow');
+</script>
