@@ -1,13 +1,14 @@
-<h1>
-  マーケット情報検索
-</h1>
-<%= search_form_for @m, url: result_markets_path do |f| %>
+<%= render 'shared/header' %>
+
+<h1 class="text-center mt-5">Market search</h1>
+
+<%= search_form_for @m, class:"text-center", url: result_markets_path do |f| %>
   <div class="mt-5">
-    <%= f.label :created_at_eq, '日時指定' %>
-    <%= f.collection_select :created_at_gteq, @markets, :created_at, :created_at,  include_blank: '指定なし' %>
-    〜
-    <%= f.collection_select :created_at_lteq, @markets, :created_at, :created_at,  include_blank: '指定なし' %>
+  <%= f.label :created_at_eq, '日時指定' %>
+  <%= f.collection_select :created_at_gteq, @markets, :created_at, :created_at,  include_blank: '指定なし' %>
+  〜
+  <%= f.collection_select :created_at_lteq, @markets, :created_at, :created_at,  include_blank: '指定なし' %>
   </div>
   <br>
-  <%= f.submit '検索' %>
+  <%= f.submit '検索', class:"btn btn-dark btn-lg mt-4" %>
 <% end %>

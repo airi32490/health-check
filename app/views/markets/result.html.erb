@@ -1,11 +1,6 @@
-<h1 class="mt-5 text-center">Result</h1>
+<%= render 'shared/header' %>
 
-<div class="text-right mr-5">
-  <%= link_to 'Search', search_markets_path %>
-</div>
-<div class="text-right mr-5">
-  <%= link_to 'トップページへ戻る', top_healths_path %>
-</div>
+<h1 class="mt-5 text-center">Result</h1>
 
 <div class="mt-5 mx-5">
 <% if @results.length !=0 %>
