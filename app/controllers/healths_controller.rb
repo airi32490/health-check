@@ -2,6 +2,7 @@ class HealthsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :search_health, only: [:search, :result]
   before_action :ensure_checker, only: [:search, :result]
+  
   def index
   end
 

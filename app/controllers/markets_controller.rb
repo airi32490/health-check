@@ -1,6 +1,7 @@
 class MarketsController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :search_market, only: [:search, :result]
+  before_action :make_graph, only: [:stock_graph, :exchange_graph]
 
   def new
     @market = Market.new
@@ -24,15 +25,9 @@ class MarketsController < ApplicationController
   end
 
   def stock_graph
-    make_graph
-    # 最新のコメント30件取得
-    @comments = Comment.all.order(id: "DESC").limit(31)
   end
 
   def exchange_graph
-    make_graph
-    # 最新のコメント30件取得
-    @comments = Comment.all.order(id: "DESC").limit(31)
   end
 
   private
@@ -49,5 +44,7 @@ class MarketsController < ApplicationController
     # 半年分のデータを取得
     @data = Market.limit(31*6).order(created_at: :desc).pluck(:created_at, params[:column])
     @price = Market.limit(31*6).order(created_at: :desc).pluck(params[:column])
+    # 最新のコメント30件取得
+    @comments = Comment.all.order(id: "DESC").limit(31)
   end
 end
