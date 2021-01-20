@@ -2,7 +2,7 @@
 ![Morning Routine TOP](https://user-images.githubusercontent.com/74547623/104905892-50dd2900-59c6-11eb-931a-a44f3d6efca7.png)
 
 # アプリケーション概要
-毎朝始業前に行うルーティーンの管理を目的としたアプリケーション
+毎朝始業前に行うルーティンの管理を目的としたアプリケーション
 - 体調チェック機能
   - 体温・体調・アルコール数値を入力し、基準値をオーバーした場合は上司（資格保有者）の確認が必要となる。
   - 資格保有者は過去の体調チェックデータを検索することが可能。
@@ -155,10 +155,10 @@ $ rails s
 ```
 
 # 開発環境
-- フロントエンド：HTML5/CSS(Bootstrap)/JavaScript
+- フロントエンド：HTML5/CSS(Bootstrap)/JavaScript/jQuery/Ajax
 - バックエンド：Ruby on Rails(6.0.0)/Ruby(2.6.5)/JavaScript
 - テスト：RSpec
 - Linter：Rubocop
-- データベース：MySQL(5.6.50)
+- データベース：MySQL(5.6.50)/Sequel Pro
 - インフラ：Heroku
 - タスク管理：GitHub/Trello
