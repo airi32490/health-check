@@ -6,7 +6,7 @@ class Market < ApplicationRecord
       validates :nikkei
       validates :ny_dow
     end
-    with_options format: { with: /\A\d{2,3}\.(\d{3})\z/, message: "は半角数字で入力してください" } do
+    with_options format: { with: /\A\d{2,3}\.(\d{0,3})\z/, message: "は半角数字で入力してください" } do
       validates :us_dollar
       validates :euro
       validates :au_dollar
